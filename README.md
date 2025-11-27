@@ -15,6 +15,8 @@ OpenAI API Router (Cloudflare Workers)
 🔀 智能分流：根据请求模型（如 gpt-4, claude-3）自动路由到配置好的不同后端。
 💾 持久化存储：使用 Cloudflare KV 存储配置，无需重新部署即可实时更新。
 🧪 在线测试：后台直接测试模型连通性。
+
+
 🛠 部署指南
 1. 准备工作
 你需要一个 Cloudflare 账号。
@@ -40,6 +42,8 @@ Environment Variables:
 Variable name: ADMIN_PASSWORD
 Value: 设置你的后台管理密码（例如 123456，请设置复杂一点）。
 点击 Save and deploy。
+
+
 📖 使用说明
 进入管理后台
 访问你的 Worker 域名（例如 https://ai-router.your-name.workers.dev/）。输入你在环境变量中设置的 ADMIN_PASSWORD 即可登录。
@@ -52,8 +56,8 @@ API密钥: 目标服务商的 Key (sk-xxxx)。
 在 认证密钥 页面添加密钥（如 my-custom-key-001）。你的用户将使用这个 Key 来请求你的 Worker。
 客户端调用示例
 假设你的 Worker 域名是 https://api.example.com，你配置的客户端密钥是 my-custom-key-001。
+
 使用 cURL:
-code
 Bash
 curl https://api.example.com/v1/chat/completions \
   -H "Content-Type: application/json" \
@@ -62,8 +66,10 @@ curl https://api.example.com/v1/chat/completions \
     "model": "gpt-4",
     "messages": [{"role": "user", "content": "Hello!"}]
   }'
+
+  
 使用 Python (OpenAI SDK):
-code
+
 Python
 from openai import OpenAI
 
@@ -77,6 +83,8 @@ response = client.chat.completions.create(
     messages=[{"role": "user", "content": "Hello world"}]
 )
 print(response.choices[0].message.content)
+
+
 ⚠️ 注意事项
 本程序仅作为 API 路由和转发使用，请勿用于非法用途。
 建议开启 Cloudflare 的 Custom Domain 以避免 workers.dev 域名在某些网络环境下无法访问。
