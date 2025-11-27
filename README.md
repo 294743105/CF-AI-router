@@ -20,6 +20,8 @@ OpenAI API Router (Cloudflare Workers)
 
 
 🛠 部署指南
+
+
 1. 准备工作
 你需要一个 Cloudflare 账号。
 2. 创建 KV Namespace
@@ -47,6 +49,8 @@ Value: 设置你的后台管理密码（例如 123456，请设置复杂一点）
 
 
 📖 使用说明
+
+
 进入管理后台
 访问你的 Worker 域名（例如 https://ai-router.your-name.workers.dev/）。输入你在环境变量中设置的 ADMIN_PASSWORD 即可登录。
 配置模型
